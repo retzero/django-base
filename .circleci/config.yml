@@ -7,13 +7,13 @@ jobs:
 
    steps:
      - checkout
-
      - run:
          name: Build docker image
          command: |
            docker build -t django-base .
      - run:
          name: Tagging
+         command: |
            docker tag django-base ${CIRCLE_USERNAME}/django-base:latest
            docker tag django-base ${CIRCLE_USERNAME}/django-bases:${CIRCLE_SHA1:0:6}
      - run:

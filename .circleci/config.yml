@@ -10,12 +10,12 @@ jobs:
      - run:
          name: Build docker image
          command: |
-           docker build --pull -t django-base .
+           docker login -u $DOCKER_LOGIN_ID -p $DOCKER_LOGIN_PASSWORD
+           docker build --pull -t ${CIRCLE_USERNAME}/django-base:latest .
      - run:
          name: Tagging
          command: |
-           docker tag django-base ${CIRCLE_USERNAME}/django-base:latest
-           docker tag django-base ${CIRCLE_USERNAME}/django-bases:${CIRCLE_SHA1:0:6}
+           docker tag ${CIRCLE_USERNAME}/django-base:latest ${CIRCLE_USERNAME}/django-bases:${CIRCLE_SHA1:0:6}
      - run:
          name: Push to docker hub
          command: |

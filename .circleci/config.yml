@@ -10,7 +10,7 @@ jobs:
      - run:
          name: Build docker image
          command: |
-           docker build -t django-base .
+           docker build --pull -t django-base .
      - run:
          name: Tagging
          command: |

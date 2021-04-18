@@ -11,5 +11,5 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 RUN git clone https://github.com/pbelskiy/quickbuild.git qb-api-src && \
-    cd qb-api-src && pip intall . && \
+    cd qb-api-src && pip install . && \
     cd ../ && rm -rf qb-api-src
